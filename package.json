@@ -4,18 +4,28 @@
   "description": "hr",
   "main": "index.js",
   "scripts": {
-    "start": "node index.js",
-    "test": "test"
-  },
+      "dev": "concurrently \"npm:dev:*\"",
+      "dev:api": "node index.js",
+      "dev:gui": "cd gui && vite",
+      "build": "cd gui && vite build",
+      "start": "node index.js",
+      "start:prod": "npm run build && npm run start"
+    },
+    "dependencies": {
+      "express": "^4.21.0",
+      "concurrently": "^7.0.0"
+    },
+    "devDependencies": {
+      "vite": "^4.0.0",
+      "react": "^18.0.0",
+      "react-dom": "^18.0.0"
+    },
   "keywords": [
     "human",
     "resources"
   ],
   "bugs": {
     "url": "https://github.com/suiGn/orgboat/issues"
-  },
-  "dependencies": {
-    "express": "^4.18.2"
   },
   "repository": {
     "type": "git",
